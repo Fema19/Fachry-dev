@@ -1,0 +1,50 @@
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Fema - Full Stack Developer Portfolio',
+  description:
+    'Portfolio of Fema, a full-stack developer specializing in modern web development, Laravel, React, and Next.js. Available for opportunities in Germany and Europe.',
+  keywords: [
+    'developer',
+    'portfolio',
+    'full-stack',
+    'Next.js',
+    'React',
+    'Laravel',
+    'freelancer',
+  ],
+  authors: [{ name: 'Fema' }],
+  creator: 'Fema',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://fema.dev',
+    siteName: 'Fema Portfolio',
+    title: 'Fema - Full Stack Developer',
+    description: 'Premium portfolio showcasing my work and expertise',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
+        {children}
+      </body>
+    </html>
+  );
+}
