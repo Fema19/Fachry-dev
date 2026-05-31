@@ -51,7 +51,7 @@ export function PremiumImageFrame({
 
         {/* Image */}
         <div
-          className={`absolute inset-0 ${isCircular ? 'rounded-full' : 'rounded-3xl'} overflow-hidden`}
+          className={`relative w-full h-full ${isCircular ? 'rounded-full' : 'rounded-3xl'} overflow-hidden`}
         >
           {!showPlaceholder ? (
             <Image
