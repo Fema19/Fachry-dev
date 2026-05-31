@@ -71,6 +71,26 @@ export function PremiumImageFrame({
               priority
             />
           )}
+
+          {/* Color Grading Layer - Darker with cool tones */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/20 via-blue-900/15 to-slate-900/25 mix-blend-overlay" />
+
+          {/* Blue Tint Overlay - Reduce green saturation */}
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/5 via-transparent to-blue-900/10 mix-blend-multiply" />
+
+          {/* Radial Vignette - Fade edges, suppress background */}
+          <div
+            className="absolute inset-0 mix-blend-multiply"
+            style={{
+              background: 'radial-gradient(circle at 50% 50%, transparent 40%, rgba(15, 23, 42, 0.4) 85%, rgba(15, 23, 42, 0.6) 100%)',
+            }}
+          />
+
+          {/* Cool-tone Color Grade - Desaturate greens */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-blue-500/8 to-transparent mix-blend-screen opacity-75" />
+
+          {/* Enhanced Contrast & Clarity */}
+          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-slate-950/5 to-transparent mix-blend-overlay opacity-60" />
         </div>
       </div>
 

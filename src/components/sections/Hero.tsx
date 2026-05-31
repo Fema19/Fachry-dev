@@ -106,9 +106,9 @@ export function Hero() {
               className="flex gap-4 pt-4"
             >
               {[
-                { icon: Code, href: 'https://github.com', label: 'GitHub' },
-                { icon: Link2, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:your-email@example.com', label: 'Email' },
+                { icon: Code, href: 'https://github.com/Fema19', label: 'GitHub' },
+                { icon: Link2, href: 'https://www.linkedin.com/in/fachry-much-n-a-2b68a0375?utm_source=share_via&utm_content=profile&utm_medium=member_android', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:fachrinurulakbar19@gmail.com', label: 'Email' },
               ].map((link) => {
                 const Icon = link.icon;
                 return (
