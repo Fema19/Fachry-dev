@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/Card';
+import { PremiumImageFrame } from '@/components/ui/PremiumImageFrame';
 import { fadeUp, slideLeft, slideRight, staggerContainer } from '@/lib/animations';
+import { ABOUT_IMAGE } from '@/lib/images';
 
 export function About() {
   return (
@@ -16,18 +17,14 @@ export function About() {
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
-          {/* Left - Image/Visual Card */}
-          <motion.div variants={slideLeft} className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-blue-500/10 rounded-3xl blur-3xl" />
-            <Card className="relative backdrop-blur-xl border-sky-500/20 hover:border-sky-500/40 transition-colors">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-sky-500/20 to-blue-500/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-sky-400 to-blue-400 opacity-20 blur-2xl mb-4" />
-                  <h3 className="text-xl font-semibold text-slate-50">Fema</h3>
-                  <p className="text-sm text-slate-400 mt-1">Full Stack Developer</p>
-                </div>
-              </div>
-            </Card>
+          {/* Left - Image */}
+          <motion.div variants={slideLeft} className="relative group flex justify-center">
+            <PremiumImageFrame
+              src={ABOUT_IMAGE}
+              alt="Fachry - About Profile"
+              isCircular={false}
+              placeholder="/profile/placeholder-about.svg"
+            />
           </motion.div>
 
           {/* Right - Content */}
@@ -55,8 +52,7 @@ export function About() {
               <p>
                 My journey in web development started with a curiosity about how things
                 work on the internet. Since then, I've specialized in Laravel for backend
-                development and React/Next.js for frontend applications, with additional
-                experience in React Native for mobile development.
+                development and React/Next.js for frontend applications.
               </p>
               <p>
                 I'm constantly learning and exploring new technologies, especially in the
@@ -72,7 +68,7 @@ export function About() {
               className="grid grid-cols-2 gap-4 pt-4"
             >
               {[
-                { label: 'Location', value: 'Germany' },
+                { label: 'Location', value: 'Indonesia' },
                 { label: 'Experience', value: '3+ Years' },
                 { label: 'Specialization', value: 'Full Stack' },
                 { label: 'Open to', value: 'Remote/International' },

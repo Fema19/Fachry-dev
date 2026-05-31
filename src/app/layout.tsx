@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Fema - Full Stack Developer Portfolio',
+  title: 'Fachry - Full Stack Developer Portfolio',
   description:
-    'Portfolio of Fema, a full-stack developer specializing in modern web development, Laravel, React, and Next.js. Available for opportunities in Germany and Europe.',
+    'Portfolio of Fachry, a full-stack developer specializing in modern web development, Laravel, React, and Next.js. Available for opportunities in Indonesia and Europe.',
   keywords: [
     'developer',
     'portfolio',
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     'Laravel',
     'freelancer',
   ],
-  authors: [{ name: 'Fema' }],
-  creator: 'Fema',
+  authors: [{ name: 'Fachry' }],
+  creator: 'Fachry',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://fema.dev',
-    siteName: 'Fema Portfolio',
-    title: 'Fema - Full Stack Developer',
+    url: 'https://fachry.dev',
+    siteName: 'Fachry Portfolio',
+    title: 'Fachry - Full Stack Developer',
     description: 'Premium portfolio showcasing my work and expertise',
   },
   robots: {

@@ -57,7 +57,7 @@ export function Navbar() {
               }}
               className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent"
             >
-              Fema
+              Fachry
             </a>
           </div>
 

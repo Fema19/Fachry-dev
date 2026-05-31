@@ -5,8 +5,10 @@ import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { ArrowDown, Code, Link2, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { PremiumImageFrame } from '@/components/ui/PremiumImageFrame';
 import { fadeUp, staggerContainer, slideLeft, slideRight } from '@/lib/animations';
 import { scrollToSection } from '@/lib/utils';
+import { HERO_IMAGE } from '@/lib/images';
 
 export function Hero() {
   return (
@@ -35,7 +37,7 @@ export function Hero() {
                 className="inline-block px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/30"
               >
                 <p className="text-sm font-medium text-sky-300">
-                  👋 Welcome to my portfolio
+                   Welcome to my portfolio
                 </p>
               </motion.div>
 
@@ -45,7 +47,7 @@ export function Hero() {
               >
                 Hi, I'm <br />
                 <span className="bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent">
-                  Fema
+                  Fachry
                 </span>
               </motion.h1>
 
@@ -125,26 +127,17 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Visual */}
+          {/* Right Side - Image */}
           <motion.div
             variants={slideRight}
-            className="hidden lg:flex items-center justify-center"
+            className="hidden lg:flex items-center justify-center group"
           >
-            <div className="relative w-full max-w-md aspect-square">
-              {/* Animated gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 to-blue-500/20 rounded-3xl blur-3xl animate-pulse" />
-
-              {/* Card */}
-              <div className="relative h-full rounded-3xl border border-sky-500/30 bg-gradient-to-br from-slate-900/80 to-slate-950/80 backdrop-blur-xl p-8 flex flex-col items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-sky-400 to-blue-400 opacity-20 blur-2xl" />
-                  <h3 className="text-2xl font-bold text-slate-50">Full Stack</h3>
-                  <p className="text-slate-400">
-                    Web Developer crafting exceptional digital experiences
-                  </p>
-                </div>
-              </div>
-            </div>
+            <PremiumImageFrame
+              src={HERO_IMAGE}
+              alt="Fachry - Full Stack Developer"
+              isCircular={true}
+              placeholder="/profile/placeholder-hero.svg"
+            />
           </motion.div>
         </div>
 

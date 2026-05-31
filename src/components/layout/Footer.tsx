@@ -6,24 +6,19 @@ import { Link2, Mail, Share2, Code } from 'lucide-react';
 const socialLinks = [
   {
     icon: Mail,
-    href: 'mailto:your-email@example.com',
+    href: 'mailto:fachrinurulakbar19@gmail.com',
     label: 'Email',
   },
   {
     icon: Code,
-    href: 'https://github.com',
+    href: 'https://github.com/Fema19',
     label: 'GitHub',
   },
   {
     icon: Link2,
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/fachry-much-n-a-2b68a0375?utm_source=share_via&utm_content=profile&utm_medium=member_android',
     label: 'LinkedIn',
-  },
-  {
-    icon: Share2,
-    href: 'https://twitter.com',
-    label: 'Twitter',
-  },
+  },  
 ];
 
 export function Footer() {
@@ -36,7 +31,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-lg font-bold bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent mb-2">
-              Fema
+              Fachry
             </h3>
             <p className="text-slate-400 text-sm">
               Full Stack Developer passionate about building modern digital experiences.
@@ -88,7 +83,7 @@ export function Footer() {
           {/* Bottom Info */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
             <p className="text-slate-400 text-sm">
-              © {currentYear} Fema. All rights reserved.
+              © {currentYear} Fachry. All rights reserved.
             </p>
             <p className="text-slate-500 text-xs">
               Built with{' '}

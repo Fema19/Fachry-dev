@@ -1,35 +1,29 @@
-import { Skill } from '@/types';
+export interface SkillItem {
+  name: string;
+  icon: string;
+}
 
-export const skills: Skill[] = [
+export const skills: SkillItem[] = [
   // Frontend
-  { name: 'HTML', category: 'frontend', level: 'expert' },
-  { name: 'CSS', category: 'frontend', level: 'expert' },
-  { name: 'JavaScript', category: 'frontend', level: 'advanced' },
-  { name: 'TypeScript', category: 'frontend', level: 'advanced' },
-  { name: 'React', category: 'frontend', level: 'advanced' },
-  { name: 'Next.js', category: 'frontend', level: 'advanced' },
-  { name: 'Tailwind CSS', category: 'frontend', level: 'advanced' },
-  { name: 'Framer Motion', category: 'frontend', level: 'intermediate' },
+  { name: 'HTML', icon: '/skills/html.svg' },
+  { name: 'CSS', icon: '/skills/css.svg' },
+  { name: 'JavaScript', icon: '/skills/javascript.svg' },
+  { name: 'TypeScript', icon: '/skills/typescript.svg' },
+  { name: 'React', icon: '/skills/react.svg' },
+  { name: 'Next.js', icon: '/skills/nextjs.svg' },
+  { name: 'Tailwind CSS', icon: '/skills/tailwind.svg' },
 
   // Backend
-  { name: 'PHP', category: 'backend', level: 'advanced' },
-  { name: 'Laravel', category: 'backend', level: 'advanced' },
-  { name: 'REST API', category: 'backend', level: 'advanced' },
-  { name: 'MySQL', category: 'backend', level: 'intermediate' },
+  { name: 'PHP', icon: '/skills/php.svg' },
+  { name: 'Laravel', icon: '/skills/laravel.svg' },
+  { name: 'MySQL', icon: '/skills/mysql.svg' },
 
-  // Mobile
-  { name: 'React Native', category: 'mobile', level: 'intermediate' },
-
-  // Tools
-  { name: 'Git', category: 'tools', level: 'advanced' },
-  { name: 'GitHub', category: 'tools', level: 'advanced' },
-  { name: 'VS Code', category: 'tools', level: 'advanced' },
-  { name: 'Figma', category: 'tools', level: 'intermediate' },
+  // Other
+  { name: 'Java', icon: '/skills/java.svg' },
+  { name: 'Git', icon: '/skills/git.svg' },
+  { name: 'GitHub', icon: '/skills/github.svg' },
 ];
 
-export const skillsByCategory = {
-  frontend: skills.filter((s) => s.category === 'frontend'),
-  backend: skills.filter((s) => s.category === 'backend'),
-  mobile: skills.filter((s) => s.category === 'mobile'),
-  tools: skills.filter((s) => s.category === 'tools'),
-};
+// For carousel infinite loop - duplicate for seamless scrolling
+export const skillsForCarousel = [...skills, ...skills];
+

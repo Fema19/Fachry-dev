@@ -10,28 +10,23 @@ import { fadeUp, staggerContainer, staggerItem } from '@/lib/animations';
 const socialLinks = [
   {
     icon: Mail,
-    href: 'mailto:your-email@example.com',
+    href: 'mailto:fachrinurulakbar19@gmail.com',
     label: 'Email',
-    handle: 'your-email@example.com',
+    handle: 'fachrinurulakbar19@gmail.com',
   },
   {
     icon: Code,
-    href: 'https://github.com',
+    href: 'https://github.com/Fema19',
     label: 'GitHub',
-    handle: '@yourgithub',
+    handle: '@Fema19',
   },
   {
     icon: Link2,
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/fachry-much-n-a-2b68a0375?utm_source=share_via&utm_content=profile&utm_medium=member_android',
     label: 'LinkedIn',
     handle: 'LinkedIn Profile',
   },
-  {
-    icon: Share2,
-    href: 'https://twitter.com',
-    label: 'Twitter',
-    handle: '@yourtwitter',
-  },
+
 ];
 
 export function Contact() {
@@ -40,7 +35,9 @@ export function Contact() {
     email: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -51,11 +48,44 @@ export function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormData({ name: '', email: '', message: '' });
+    setIsLoading(true);
+    setStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setStatus('error');
+        setErrorMessage(data.error || 'Failed to send message. Please try again.');
+        return;
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+
+      // Reset success message after 3 seconds
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 3000);
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Failed to send message. Please try again.');
+      console.error('Contact form error:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -137,7 +167,8 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50 text-slate-50 placeholder-slate-500 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition-all"
+                    disabled={isLoading}
+                    className="w-full px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50 text-slate-50 placeholder-slate-500 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
 
@@ -152,7 +183,8 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="your@email.com"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50 text-slate-50 placeholder-slate-500 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition-all"
+                    disabled={isLoading}
+                    className="w-full px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50 text-slate-50 placeholder-slate-500 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
 
@@ -167,7 +199,8 @@ export function Contact() {
                     placeholder="Tell me about your project..."
                     rows={5}
                     required
-                    className="w-full px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50 text-slate-50 placeholder-slate-500 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition-all resize-none"
+                    disabled={isLoading}
+                    className="w-full px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700/50 text-slate-50 placeholder-slate-500 focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
 
@@ -175,17 +208,28 @@ export function Contact() {
                   type="submit"
                   size="lg"
                   className="w-full"
+                  disabled={isLoading}
                 >
-                  {submitted ? 'Message Sent!' : 'Send Message'}
+                  {isLoading ? 'Sending...' : 'Send Message'}
                 </Button>
 
-                {submitted && (
+                {status === 'success' && (
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-sm text-green-400 text-center"
                   >
-                    Thanks for reaching out! I'll get back to you soon.
+                    Message sent successfully.
+                  </motion.p>
+                )}
+
+                {status === 'error' && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-sm text-red-400 text-center"
+                  >
+                    {errorMessage}
                   </motion.p>
                 )}
               </form>
