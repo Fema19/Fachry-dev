@@ -44,7 +44,7 @@ export function About() {
 
             <motion.div variants={fadeUp} className="space-y-4 text-slate-300">
               <p>
-                I'm a passionate full-stack developer from Germany with a strong focus on
+                I'm a passionate full-stack developer from Indonesia with a strong focus on
                 building modern web applications. With expertise in both frontend and
                 backend technologies, I create seamless digital experiences that delight
                 users and solve real problems.
