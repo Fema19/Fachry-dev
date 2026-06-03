@@ -29,14 +29,14 @@ export function Projects() {
         >
           {/* Project Image Placeholder */}
           <div
-            className="w-full h-48 bg-gradient-to-br from-sky-500/10 to-blue-500/10 group-hover:from-sky-500/20 group-hover:to-blue-500/20 transition-colors flex items-center justify-center overflow-hidden cursor-pointer"
+            className="w-full h-48 bg-gradient-to-br from-cyan-500/15 to-blue-500/10 group-hover:from-cyan-500/25 group-hover:to-blue-500/15 transition-all duration-300 flex items-center justify-center overflow-hidden cursor-pointer"
             onClick={handleCardClick}
           >
             <div className="w-full h-full relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-sky-500/10 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/10 via-transparent to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-slate-50/10 group-hover:text-slate-50/20 transition-all">
+                  <div className="text-4xl font-bold text-white/15 group-hover:text-white/25 transition-all">
                     {project.title.slice(0, 1)}
                   </div>
                 </div>
@@ -47,10 +47,10 @@ export function Projects() {
           {/* Content */}
           <div className="flex-1 flex flex-col p-6 space-y-4">
             <div>
-              <h3 className="text-xl font-bold text-slate-50 group-hover:text-sky-300 transition-colors">
+              <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                 {project.title}
               </h3>
-              <p className="text-sm text-slate-400 mt-2">
+              <p className="text-sm text-cyan-100/70 mt-2">
                 {project.description}
               </p>
             </div>
@@ -77,7 +77,7 @@ export function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800/50 hover:bg-sky-500/20 text-slate-300 hover:text-sky-300 border border-slate-700/50 hover:border-sky-500/50 transition-all duration-200 text-sm font-medium"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg glass-sm hover:glass-elevated text-cyan-200 hover:text-cyan-100 border-cyan-400/40 hover:border-cyan-300/60 transition-all duration-200 text-sm font-medium"
                 >
                   <GitBranch className="w-4 h-4" />
                   Code
@@ -89,7 +89,7 @@ export function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/50 hover:border-sky-400/50 transition-all duration-200 text-sm font-medium"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg glass-sm hover:glass-elevated text-cyan-200 hover:text-cyan-100 border-cyan-400/40 hover:border-cyan-300/60 transition-all duration-200 text-sm font-medium"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Live Demo
@@ -103,7 +103,7 @@ export function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 sm:py-32 bg-gradient-to-b from-transparent via-slate-900/20 to-transparent">
+    <section id="projects" className="py-20 sm:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -112,10 +112,10 @@ export function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-50 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Featured Projects
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-cyan-100/80 max-w-2xl mx-auto">
             Showcase of my recent work, demonstrating my skills in web development,
             design, and problem-solving.
           </p>
@@ -141,7 +141,7 @@ export function Projects() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-2xl font-bold text-slate-300 mb-6"
+              className="text-2xl font-bold text-white mb-6"
             >
               Other Projects
             </motion.h3>

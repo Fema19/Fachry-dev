@@ -89,7 +89,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-32">
+    <section id="contact" className="py-20 sm:py-32 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -98,10 +98,10 @@ export function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-50 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Let's Connect
           </h2>
-          <p className="text-slate-400 text-lg">
+          <p className="text-cyan-100/80 text-lg">
             I'm always open to new opportunities and collaborations. Feel free to reach out!
           </p>
         </motion.div>
@@ -117,7 +117,7 @@ export function Contact() {
           >
             <motion.div
               variants={staggerItem}
-              className="text-lg font-semibold text-slate-50 mb-6"
+              className="text-lg font-semibold text-white mb-6"
             >
               Contact Information
             </motion.div>
@@ -131,16 +131,16 @@ export function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 p-4 rounded-lg border border-slate-700/50 hover:border-sky-500/50 bg-slate-800/20 hover:bg-sky-500/5 transition-all duration-300"
+                  className="group flex items-center gap-4 p-4 rounded-2xl glass-sm hover:glass-elevated transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-sky-500/20 group-hover:bg-sky-500/30 flex items-center justify-center transition-colors">
-                    <Icon className="w-6 h-6 text-sky-400 group-hover:text-sky-300" />
+                  <div className="w-12 h-12 rounded-lg glass-sm flex items-center justify-center transition-colors">
+                    <Icon className="w-6 h-6 text-cyan-300 group-hover:text-cyan-200" />
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-50 group-hover:text-sky-300 transition-colors">
+                    <p className="font-semibold text-white group-hover:text-cyan-300 transition-colors">
                       {link.label}
                     </p>
-                    <p className="text-sm text-slate-400">{link.handle}</p>
+                    <p className="text-sm text-cyan-100/70">{link.handle}</p>
                   </div>
                 </motion.a>
               );
@@ -154,7 +154,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            
+           
           </motion.div>
         </div>
       </div>

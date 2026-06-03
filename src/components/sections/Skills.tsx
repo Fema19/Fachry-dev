@@ -7,7 +7,7 @@ import { fadeUp } from '@/lib/animations';
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 sm:py-32 bg-gradient-to-b from-transparent via-slate-900/20 to-transparent overflow-hidden">
+    <section id="skills" className="py-20 sm:py-32 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -16,10 +16,10 @@ export function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-50 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Tech Stack
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-cyan-100/80 max-w-2xl mx-auto">
             A complete set of technologies and tools I use to build high-performance applications.
           </p>
         </motion.div>
@@ -41,7 +41,7 @@ export function Skills() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="text-center text-sm text-slate-500 mt-12"
+          className="text-center text-sm text-cyan-200/60 mt-12"
         >
           Hover to pause the carousel
         </motion.p>

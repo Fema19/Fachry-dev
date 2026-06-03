@@ -16,17 +16,11 @@ export function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background Gradient Blur */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-      </div>
-
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Content */}
@@ -34,24 +28,24 @@ export function Hero() {
             <div className="space-y-4">
               <motion.div
                 variants={fadeUp}
-                className="inline-block px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/30"
+                className="inline-block px-4 py-2 rounded-full glass-sm"
               >
-                <p className="text-sm font-medium text-sky-300">
+                <p className="text-sm font-medium text-cyan-200">
                    Welcome to my portfolio
                 </p>
               </motion.div>
 
               <motion.h1
                 variants={fadeUp}
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-50 leading-tight"
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight"
               >
                 Hi, I'm <br />
-                <span className="bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="gradient-text">
                   Fachry
                 </span>
               </motion.h1>
 
-              <motion.div variants={fadeUp} className="text-xl sm:text-2xl text-slate-400">
+              <motion.div variants={fadeUp} className="text-xl sm:text-2xl text-cyan-100">
                 <TypeAnimation
                   sequence={[
                     'Full Stack Developer',
@@ -66,13 +60,13 @@ export function Hero() {
                   wrapper="span"
                   cursor={true}
                   repeat={Infinity}
-                  className="text-sky-300"
+                  className="text-cyan-300"
                 />
               </motion.div>
 
               <motion.p
                 variants={fadeUp}
-                className="text-lg text-slate-400 leading-relaxed max-w-xl"
+                className="text-lg text-cyan-50/80 leading-relaxed max-w-xl"
               >
                 Passionate about building modern digital experiences with clean code and
                 attention to detail. Specializing in full-stack web development with a
@@ -117,7 +111,7 @@ export function Hero() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-lg bg-slate-800/50 hover:bg-sky-500/20 border border-slate-700/50 hover:border-sky-500/50 flex items-center justify-center text-slate-400 hover:text-sky-400 transition-all duration-300"
+                    className="w-12 h-12 rounded-lg glass-sm glow-interactive flex items-center justify-center text-cyan-200 hover:text-cyan-100"
                     aria-label={link.label}
                   >
                     <Icon className="w-5 h-5" />
@@ -143,13 +137,13 @@ export function Hero() {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom--6 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <button
             onClick={() => scrollToSection('about')}
-            className="flex flex-col items-center gap-2 text-slate-400 hover:text-sky-400 transition-colors"
+            className="flex flex-col items-center gap-2 text-cyan-200 hover:text-cyan-100 transition-colors"
           >
             <span className="text-sm font-medium">Scroll to explore</span>
             <ArrowDown className="w-5 h-5" />

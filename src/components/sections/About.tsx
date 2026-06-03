@@ -32,17 +32,17 @@ export function About() {
             <div>
               <motion.h2
                 variants={fadeUp}
-                className="text-4xl sm:text-5xl font-bold text-slate-50 mb-4"
+                className="text-4xl sm:text-5xl font-bold text-white mb-4"
               >
                 About Me
               </motion.h2>
               <motion.div
                 variants={fadeUp}
-                className="w-12 h-1 bg-gradient-to-r from-sky-400 to-blue-400 rounded-full"
+                className="w-12 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"
               />
             </div>
 
-            <motion.div variants={fadeUp} className="space-y-4 text-slate-300">
+            <motion.div variants={fadeUp} className="space-y-4 text-cyan-50/90">
               <p>
                 I'm a passionate full-stack developer from Indonesia with a strong focus on
                 building modern web applications. With expertise in both frontend and
@@ -75,12 +75,12 @@ export function About() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="p-4 rounded-lg bg-slate-800/30 border border-slate-700/30"
+                  className="p-4 rounded-lg glass-sm"
                 >
-                  <p className="text-xs font-semibold text-slate-400 mb-1">
+                  <p className="text-xs font-semibold text-cyan-200/70 mb-1">
                     {item.label}
                   </p>
-                  <p className="text-sm font-bold text-sky-300">{item.value}</p>
+                  <p className="text-sm font-bold text-cyan-100">{item.value}</p>
                 </div>
               ))}
             </motion.div>

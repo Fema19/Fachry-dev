@@ -26,10 +26,10 @@ export function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-50 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Experience & Education
           </h2>
-          <p className="text-slate-400">
+          <p className="text-cyan-100/80">
             My journey through education, internships, and professional projects.
           </p>
         </motion.div>
@@ -46,16 +46,16 @@ export function Experience() {
             <motion.div key={exp.id} variants={staggerItem} className="relative">
               {/* Timeline line (hidden on last item) */}
               {index < experiences.length - 1 && (
-                <div className="absolute left-8 top-20 h-12 w-0.5 bg-gradient-to-b from-slate-600 to-transparent" />
+                <div className="absolute left-8 top-20 h-12 w-0.5 bg-gradient-to-b from-cyan-400/50 to-transparent" />
               )}
 
               <div className="flex gap-6">
                 {/* Timeline dot */}
                 <div className="flex flex-col items-center pt-1">
                   <div
-                    className={`w-16 h-16 rounded-full border-2 border-slate-800 ${typeColors[exp.type].dot} flex items-center justify-center`}
+                    className={`w-16 h-16 rounded-full border-2 border-white/30 glass-sm flex items-center justify-center ${typeColors[exp.type].dot}`}
                   >
-                    <span className="text-xs font-bold text-slate-950 capitalize">
+                    <span className="text-xs font-bold text-white capitalize">
                       {exp.type[0]}
                     </span>
                   </div>
@@ -66,11 +66,11 @@ export function Experience() {
                   <div className="space-y-3">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                       <div>
-                        <h3 className="text-xl font-bold text-slate-50">
+                        <h3 className="text-xl font-bold text-white">
                           {exp.title}
                         </h3>
                         {exp.company && (
-                          <p className="text-sm text-slate-400 mt-1">
+                          <p className="text-sm text-cyan-100/70 mt-1">
                             {exp.company}
                           </p>
                         )}
@@ -84,14 +84,14 @@ export function Experience() {
                       </Badge>
                     </div>
 
-                    <p className="text-slate-300">{exp.description}</p>
+                    <p className="text-cyan-50/90">{exp.description}</p>
 
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2">
-                      <p className="text-sm text-slate-400">
+                      <p className="text-sm text-cyan-100/70">
                         {formatDate(exp.startDate)} —{' '}
                         {exp.endDate ? formatDate(exp.endDate) : 'Present'}
                       </p>
-                      <p className="text-xs font-medium text-sky-400">
+                      <p className="text-xs font-medium text-cyan-300">
                         {getDuration(exp.startDate, exp.endDate)}
                       </p>
                     </div>

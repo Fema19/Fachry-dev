@@ -17,9 +17,9 @@ export function Card({
   return (
     <div
       className={classNames(
-        'rounded-xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-sm p-6',
+        'rounded-2xl glass p-6 group',
         interactive &&
-          'transition-all duration-300 hover:border-sky-500/50 hover:shadow-lg hover:shadow-sky-500/10',
+          'transition-all duration-300 hover:glass-elevated hover:border-cyan-400/50 cursor-pointer',
         className
       )}
       {...props}

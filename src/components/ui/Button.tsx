@@ -17,15 +17,15 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500';
+    'font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400';
 
   const variantStyles = {
     primary:
-      'bg-sky-500 text-white hover:bg-sky-600 shadow-lg hover:shadow-sky-500/50',
+      'bg-gradient-to-r from-cyan-400 to-blue-400 text-white hover:from-cyan-500 hover:to-blue-500 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/40',
     secondary:
-      'bg-slate-700 text-slate-50 hover:bg-slate-600 shadow-md hover:shadow-slate-700/50',
+      'bg-white/10 text-white hover:bg-white/20 shadow-md hover:shadow-lg transition-all',
     outline:
-      'border border-slate-600 text-slate-200 hover:bg-slate-800/50 hover:border-sky-500',
+      'border border-white/30 text-white hover:bg-white/10 hover:border-cyan-400/60 transition-all',
   };
 
   const sizeStyles = {

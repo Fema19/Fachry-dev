@@ -41,7 +41,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrollY > 50
-          ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-700/20'
+          ? 'glass'
           : 'bg-transparent'
       }`}
     >
@@ -55,7 +55,7 @@ export function Navbar() {
                 e.preventDefault();
                 scrollToSection('hero');
               }}
-              className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent"
+              className="text-2xl font-bold gradient-text"
             >
               Fachry
             </a>
@@ -72,13 +72,13 @@ export function Navbar() {
                 }}
                 className={`px-3 py-2 text-sm font-medium transition-all duration-200 relative group ${
                   activeSection === link.id
-                    ? 'text-sky-400'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'text-cyan-300'
+                    : 'text-cyan-100/70 hover:text-cyan-100'
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-400 group-hover:w-full transition-all duration-300 ${
+                  className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 group-hover:w-full transition-all duration-300 ${
                     activeSection === link.id ? 'w-full' : ''
                   }`}
                 />
@@ -89,19 +89,19 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-slate-200" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-slate-200" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 border-t border-slate-700/20">
+          <div className="md:hidden pb-4 space-y-2 border-t border-white/10">
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -111,8 +111,8 @@ export function Navbar() {
                 }}
                 className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   activeSection === link.id
-                    ? 'bg-sky-500/20 text-sky-400'
-                    : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
+                    ? 'bg-cyan-500/20 text-cyan-300'
+                    : 'text-cyan-100/70 hover:bg-white/10 hover:text-cyan-100'
                 }`}
               >
                 {link.label}

@@ -16,13 +16,13 @@ export function SkillCard({ skill }: SkillCardProps) {
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className="flex-shrink-0 w-32 h-40"
     >
-      <div className="relative h-full rounded-2xl border border-slate-700/50 bg-gradient-to-b from-slate-800/50 to-slate-900/50 backdrop-blur-sm p-6 flex flex-col items-center justify-center group hover:border-sky-500/50 hover:bg-gradient-to-b hover:from-slate-800/80 hover:to-slate-900/80 transition-all duration-300 overflow-hidden">
+      <div className="relative h-full rounded-2xl glass p-6 flex flex-col items-center justify-center group hover:glass-elevated hover:border-cyan-400/50 transition-all duration-300 overflow-hidden">
         {/* Glow effect on hover */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-sky-500/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-cyan-400/15 to-transparent pointer-events-none" />
 
         {/* Glow ring */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute inset-0 rounded-2xl shadow-lg shadow-sky-500/20" />
+          <div className="absolute inset-0 rounded-2xl shadow-lg shadow-cyan-400/25" />
         </div>
 
         {/* Content */}
@@ -44,7 +44,7 @@ export function SkillCard({ skill }: SkillCardProps) {
           </div>
 
           {/* Name */}
-          <p className="text-sm font-semibold text-slate-200 group-hover:text-sky-300 transition-colors duration-300 text-center">
+          <p className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors duration-300 text-center">
             {skill.name}
           </p>
         </div>

@@ -17,9 +17,9 @@ export function Badge({
   ...props
 }: BadgeProps) {
   const variantStyles = {
-    primary: 'bg-sky-500/20 text-sky-200 border border-sky-500/30',
-    secondary: 'bg-slate-700/50 text-slate-300 border border-slate-600/50',
-    accent: 'bg-blue-500/20 text-blue-200 border border-blue-500/30',
+    primary: 'bg-cyan-500/20 text-cyan-100 border border-cyan-400/40',
+    secondary: 'bg-white/10 text-cyan-100 border border-white/20',
+    accent: 'bg-blue-500/20 text-blue-100 border border-blue-400/40',
   };
 
   const sizeStyles = {
