@@ -1,11 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Link2, Code, Share2 } from 'lucide-react';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { fadeUp, staggerContainer, staggerItem } from '@/lib/animations';
+import { Code, Link2, Mail } from 'lucide-react';
+import { staggerContainer, staggerItem } from '@/lib/animations';
 
 const socialLinks = [
   {
@@ -26,102 +24,39 @@ const socialLinks = [
     label: 'LinkedIn',
     handle: 'LinkedIn Profile',
   },
-
 ];
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setStatus('idle');
-    setErrorMessage('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setStatus('error');
-        setErrorMessage(data.error || 'Failed to send message. Please try again.');
-        return;
-      }
-
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-
-      // Reset success message after 3 seconds
-      setTimeout(() => {
-        setStatus('idle');
-        setErrorMessage('');
-      }, 3000);
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage('Failed to send message. Please try again.');
-      console.error('Contact form error:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
-    <section id="contact" className="py-20 sm:py-32 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+    <section id="contact" className="section">
+      <div className="container-max max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-10 text-center"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-cyan-100/80 text-lg">
-            I'm always open to new opportunities and collaborations. Feel free to reach out!
+          <p className="console-label mb-3">Signal channel</p>
+          <h2 className="console-title text-4xl sm:text-5xl">Let&apos;s Connect</h2>
+          <p className="mx-auto mt-4 max-w-2xl leading-7 text-[#21242e]">
+            Reach me through email, GitHub, or LinkedIn for project notes,
+            internship opportunities, and collaboration ideas.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Contact Info */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <motion.div
-              variants={staggerItem}
-              className="text-lg font-semibold text-white mb-6"
-            >
-              Contact Information
-            </motion.div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="chrome-panel overflow-hidden"
+        >
+          <div className="chrome-header px-4 py-3">
+            <span>Contact ports</span>
+            <span className="text-[#3d4f97]">Online</span>
+          </div>
 
+          <div className="grid gap-4 p-4 sm:p-5 md:grid-cols-3">
             {socialLinks.map((link) => {
               const Icon = link.icon;
               return (
@@ -131,32 +66,32 @@ export function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 p-4 rounded-2xl glass-sm hover:glass-elevated transition-all duration-300"
+                  className="chrome-inset group flex min-h-32 flex-col justify-between gap-5 p-4 transition-colors hover:bg-white"
+                  aria-label={link.label}
                 >
-                  <div className="w-12 h-12 rounded-lg glass-sm flex items-center justify-center transition-colors">
-                    <Icon className="w-6 h-6 text-cyan-300 group-hover:text-cyan-200" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                  <span className="carbon-slab flex h-12 w-12 items-center justify-center rounded-[3px] text-[#ecab37]">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span>
+                    <span className="block text-lg font-black text-[#21242e] group-hover:text-[#3d4f97]">
                       {link.label}
-                    </p>
-                    <p className="text-sm text-cyan-100/70">{link.handle}</p>
-                  </div>
+                    </span>
+                    <span className="mt-1 block break-all text-sm text-[#3d4f97]">
+                      {link.handle}
+                    </span>
+                  </span>
                 </motion.a>
               );
             })}
-          </motion.div>
+          </div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-           
-          </motion.div>
-        </div>
+          <div className="dotted-divider mx-5 mb-5 pt-4">
+            <p className="text-center text-sm font-bold text-[#21242e]">
+              Best for Laravel, Next.js, MySQL, Java, and practical web workflow
+              conversations.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

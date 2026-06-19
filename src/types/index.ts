@@ -11,6 +11,9 @@ export interface Project {
   description: string;
   longDescription?: string;
   image?: string;
+  role?: string;
+  status?: string;
+  highlights?: string[];
   technologies: string[];
   github?: string;
   demo?: string;
@@ -26,6 +29,7 @@ export interface Experience {
   endDate?: string;
   type: 'education' | 'internship' | 'freelance' | 'personal';
   technologies?: string[];
+  highlights?: string[];
 }
 
 export interface NavLink {

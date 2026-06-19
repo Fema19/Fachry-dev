@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface PremiumImageFrameProps {
   src: string;
@@ -20,38 +20,33 @@ export function PremiumImageFrame({
   className = '',
 }: PremiumImageFrameProps) {
   const [imageError, setImageError] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const showPlaceholder = imageError && placeholder;
 
   const frameClasses = isCircular
     ? 'rounded-full w-64 h-64 sm:w-72 sm:h-72'
-    : 'rounded-3xl w-80 h-96';
+    : 'rounded-[10px] w-80 h-96';
 
   return (
     <motion.div
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4, repeat: Infinity }}
+      animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
+      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       className={`relative ${frameClasses} mx-auto ${className}`}
     >
-      {/* Outer gradient border ring */}
       <div
-        className={`absolute inset-0 bg-gradient-to-br from-cyan-400/40 via-blue-400/20 to-transparent ${
-          isCircular ? 'rounded-full' : 'rounded-3xl'
-        } p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+        className={`absolute -inset-3 bg-[#21242e] ${
+          isCircular ? 'rounded-full' : 'clip-chamfer rounded-[10px]'
+        } opacity-95 shadow-[0_3px_0_#3d4f97]`}
       />
 
-      {/* Main frame */}
       <div
         className={`absolute inset-0 ${
-          isCircular ? 'rounded-full' : 'rounded-3xl'
-        } border-2 border-white/30 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-2xl overflow-hidden shadow-2xl shadow-cyan-400/20`}
+          isCircular ? 'rounded-full' : 'rounded-[10px]'
+        } border-[6px] border-[#8ba1d4] bg-[#dedede] shadow-[inset_0_2px_0_rgba(255,255,255,0.75),inset_0_-4px_0_rgba(61,79,151,0.65),0_3px_0_#3d4f97] overflow-hidden`}
       >
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/10 to-transparent" />
-
-        {/* Image */}
         <div
-          className={`relative w-full h-full ${isCircular ? 'rounded-full' : 'rounded-3xl'} overflow-hidden`}
+          className={`relative w-full h-full ${isCircular ? 'rounded-full' : 'rounded-[4px]'} overflow-hidden bg-[#c0d5e6]`}
         >
           {!showPlaceholder ? (
             <Image
@@ -72,31 +67,13 @@ export function PremiumImageFrame({
             />
           )}
 
-          {/* Color Grading Layer - Premium cool tones */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#07111F]/40 via-blue-900/10 to-[#0F1F38]/25 mix-blend-overlay" />
-
-          {/* Cyan Tint Overlay - Cool premium tone */}
-          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/8 via-transparent to-blue-600/10 mix-blend-multiply" />
-
-          {/* Radial Vignette - Fade edges */}
-          <div
-            className="absolute inset-0 mix-blend-multiply"
-            style={{
-              background: 'radial-gradient(circle at 50% 50%, transparent 40%, rgba(7, 17, 31, 0.3) 85%, rgba(7, 17, 31, 0.5) 100%)',
-            }}
-          />
-
-          {/* Premium Color Grade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F1F38]/15 via-cyan-500/5 to-transparent mix-blend-screen opacity-75" />
-
-          {/* Enhanced Clarity */}
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/3 to-transparent mix-blend-overlay opacity-50" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/18 via-transparent to-[#3d4f97]/20" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_50%,rgba(33,36,46,0.24)_100%)]" />
         </div>
       </div>
 
-      {/* Accent line bottom */}
       <div
-        className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 w-16 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+        className="absolute -bottom-5 left-1/2 h-2 w-24 -translate-x-1/2 rounded-[2px] bg-[#f68d1f] shadow-[0_2px_0_#3d4f97]"
       />
     </motion.div>
   );

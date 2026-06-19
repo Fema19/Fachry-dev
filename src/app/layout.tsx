@@ -2,17 +2,23 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Fachry - Full Stack Developer Portfolio',
+  metadataBase: new URL('https://fachry.dev'),
+  title: {
+    default: 'Fachry - Full-Stack Web Developer',
+    template: '%s | Fachry',
+  },
   description:
-    'Portfolio of Fachry, a full-stack developer specializing in modern web development, Laravel, React, and Next.js. Available for opportunities in Indonesia and Europe.',
+    'Portfolio of Fachry, a full-stack web developer building practical applications with Laravel, Next.js, MySQL, Java, and clean user interfaces.',
   keywords: [
-    'developer',
-    'portfolio',
-    'full-stack',
-    'Next.js',
-    'React',
+    'Fachry',
+    'full-stack developer',
+    'web developer',
     'Laravel',
-    'freelancer',
+    'Next.js',
+    'MySQL',
+    'Java',
+    'Minecraft plugin developer',
+    'Indonesia developer',
   ],
   authors: [{ name: 'Fachry' }],
   creator: 'Fachry',
@@ -21,8 +27,24 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://fachry.dev',
     siteName: 'Fachry Portfolio',
-    title: 'Fachry - Full Stack Developer',
-    description: 'Premium portfolio showcasing my work and expertise',
+    title: 'Fachry - Full-Stack Web Developer',
+    description:
+      'Laravel, Next.js, MySQL, and Java projects focused on real workflows, maintainable backends, and clean UI.',
+    images: [
+      {
+        url: '/profile/hero-profile.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Fachry full-stack web developer portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fachry - Full-Stack Web Developer',
+    description:
+      'Portfolio of Laravel, Next.js, MySQL, and Java projects by Fachry.',
+    images: ['/profile/hero-profile.jpg'],
   },
   robots: {
     index: true,
@@ -37,14 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
-        {children}
-      </body>
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }

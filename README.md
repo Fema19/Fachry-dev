@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fachry.dev Portfolio
+
+A single-page developer portfolio for Fachry, built with Next.js, TypeScript, and Tailwind CSS. The current visual direction adapts a Y2K console hardware interface into a professional portfolio: chrome panels, carbon navigation, amber action states, and project cards focused on practical development work.
+
+## Tech Stack
+
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion
+
+## Features
+
+- Single-page portfolio sections: Navbar, Hero, About, Skills, Experience, Projects, Contact, and Footer
+- Responsive console-inspired interface with beveled panels and clear contact cards
+- Skills carousel with reduced-motion support
+- Project cards with optional image support and explicit Code / Live Demo actions
+- Contact/social section with Email, GitHub, and LinkedIn links
+- SEO metadata and Open Graph configuration
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a local environment file if you add environment-specific settings:
+
+```bash
+cp .env.example .env.local
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+npm run lint
+npm run build
+npm run start
+```
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+No environment variables are required for the current portfolio.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+src/
+  app/
+    globals.css            Tailwind import and console chrome design utilities
+    layout.tsx             Root layout and metadata
+    page.tsx               Single-page portfolio composition
+  components/
+    layout/                Navbar and footer
+    sections/              Portfolio page sections
+    ui/                    Shared Button, Card, Badge, image, and skill components
+  data/                    Projects, experiences, and skills
+  lib/                     Utilities, animations, and image paths
+  types/                   Shared TypeScript types
+public/
+  profile/                 Profile images and placeholders
+  skills/                  Skill icons
+```
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email: `fachrinurulakbar19@gmail.com`
+- GitHub: `https://github.com/Fema19`
+- LinkedIn: `https://www.linkedin.com/in/fachry-much-n-a-2b68a0375`

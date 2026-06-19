@@ -12,39 +12,28 @@ interface SkillCardProps {
 export function SkillCard({ skill }: SkillCardProps) {
   return (
     <motion.div
-      whileHover={{ scale: 1.1, y: -8 }}
+      whileHover={{ scale: 1.04, y: -6 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="flex-shrink-0 w-32 h-40"
+      className="flex-shrink-0 w-36 h-40"
     >
-      <div className="relative h-full rounded-2xl glass p-6 flex flex-col items-center justify-center group hover:glass-elevated hover:border-cyan-400/50 transition-all duration-300 overflow-hidden">
-        {/* Glow effect on hover */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-cyan-400/15 to-transparent pointer-events-none" />
-
-        {/* Glow ring */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute inset-0 rounded-2xl shadow-lg shadow-cyan-400/25" />
-        </div>
-
-        {/* Content */}
+      <div className="chrome-card group relative flex h-full flex-col items-center justify-center overflow-hidden p-4 transition-all duration-300 hover:border-[#f68d1f]">
+        <div className="absolute inset-x-3 top-3 h-2 rounded-[2px] bg-[#21242e]/80" />
         <div className="relative z-10 flex flex-col items-center gap-4 h-full justify-center">
-          {/* Logo */}
-          <div className="w-16 h-16 relative flex items-center justify-center">
+          <div className="chrome-inset relative flex h-16 w-16 items-center justify-center bg-white p-3">
             <Image
               src={skill.icon}
               alt={skill.name}
               width={64}
               height={64}
-              className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+              className="h-full w-full object-contain grayscale transition-all duration-300 group-hover:grayscale-0"
               onError={(e) => {
-                // Fallback if image doesn't exist
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
               }}
             />
           </div>
 
-          {/* Name */}
-          <p className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors duration-300 text-center">
+          <p className="console-label text-center text-[#21242e]">
             {skill.name}
           </p>
         </div>

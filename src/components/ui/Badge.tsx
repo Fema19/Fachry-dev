@@ -17,9 +17,9 @@ export function Badge({
   ...props
 }: BadgeProps) {
   const variantStyles = {
-    primary: 'bg-cyan-500/20 text-cyan-100 border border-cyan-400/40',
-    secondary: 'bg-white/10 text-cyan-100 border border-white/20',
-    accent: 'bg-blue-500/20 text-blue-100 border border-blue-400/40',
+    primary: 'bg-[#ecab37] text-[#21242e] border-[#8a5200]/40',
+    secondary: 'bg-white/75 text-[#3d4f97] border-[#5a5f8c]/50',
+    accent: 'bg-[#f68d1f] text-white border-[#8a5200]/50',
   };
 
   const sizeStyles = {
@@ -30,7 +30,7 @@ export function Badge({
   return (
     <span
       className={classNames(
-        'inline-block rounded-full font-medium',
+        'inline-block rounded-[3px] border font-black uppercase tracking-[0.04em] shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]',
         variantStyles[variant],
         sizeStyles[size],
         className
